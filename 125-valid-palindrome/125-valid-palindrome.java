@@ -5,14 +5,12 @@ class Solution {
         if(s == ""){
             return true;
         }
-        
-        char [] rawArray = getArray(s);
+        s = getArray(s);
         int left = 0;
-        int right = rawArray.length-1;
-        System.out.println(rawArray.length);
+        int right = s.length()-1;
         
         while(left <= right){/// 8 length 1 7 2 6 3 5 4 4
-            if(rawArray[left] != rawArray[right]){
+            if(s.charAt(left) != s.charAt(right)){
                return false;
             }
             left++; right--;
@@ -20,14 +18,13 @@ class Solution {
         return true;
     }
     
-    public char [] getArray(String s){
+    public String getArray(String s){
         String res = "";
         for(int i =0; i < s.length(); i ++){
             if(Character.isLetter(s.charAt(i)) || Character.isDigit(s.charAt(i))){
                 res += s.charAt(i);
             }
         }
-        res = res.toLowerCase();
-        return res.toCharArray();
+        return res.toLowerCase();
     }
 }
