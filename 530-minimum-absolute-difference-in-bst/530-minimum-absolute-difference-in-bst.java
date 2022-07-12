@@ -29,8 +29,10 @@ class Solution {
         if(previousValue != null) { 
             min = Math.min(min, root.val - previousValue);
         }
-        
+        System.out.println("Prev = " + previousValue + " root = " + root.val);
         previousValue = root.val;
+        
+        
         
         getMinimumDifference(root.right);
         
