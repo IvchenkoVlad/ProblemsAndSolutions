@@ -1,22 +1,18 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        
-        Map<Integer, Integer> maps = new HashMap<>();
+        Set<Integer> s = new HashSet<>();
         for(int item : nums){
-            if(!maps.containsKey(item)){
-                maps.put(item, 1);
+            if(!s.contains(item)){
+                s.add(item);
             }
             else{
-                maps.put(item, maps.get(item) + 1);
+                s.remove(item);
             }
         }
-        
-        for(Map.Entry<Integer, Integer> entry : maps.entrySet()){
-            if(entry.getValue() == 1){
-                return entry.getKey();
-            }
+        int res = 0;;
+        for(int elem: s){
+            res = elem;
         }
-        return 0;
-        
+        return res;
     }
 }
