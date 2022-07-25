@@ -18,7 +18,7 @@ class Solution {
             step1=step2;
             step2=step3;
             step3=step1+step2;
-            System.out.println("step " + counter + " -> "+ step3);
+            //System.out.println("step " + counter + " -> "+ step3);
         }
         return step3;
         }
