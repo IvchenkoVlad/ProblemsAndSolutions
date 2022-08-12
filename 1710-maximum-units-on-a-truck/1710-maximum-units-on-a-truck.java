@@ -1,31 +1,22 @@
 class Solution {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
         //find out which type of boxes contains the most items
-        Arrays.sort(boxTypes, Comparator.comparingInt(item -> item[1]));
-        // for(int i = 0; i < boxTypes.length; i++){
-        //     for(int j = 0; j < boxTypes[i].length; j++){
-        //         System.out.print(boxTypes[i][j] + " ");
-        //     }
-        //     System.out.println();
-        // }
-        int boxTotal = 0;
-        int itemsTotal = 0;
-        for(int i = boxTypes.length-1; i >= 0; i--){
+        Arrays.sort(boxTypes, (a,b)->b[1]-a[1]);
+        System.out.println(Arrays.deepToString(boxTypes));
+        int totalItem = 0;
+        for(int [] eachBox : boxTypes){
             if(truckSize == 0){
                 break;
             }
-            boxTotal = boxTypes[i][0];
-            if(boxTotal < truckSize){
-                itemsTotal += (boxTypes[i][1] * boxTotal);
-                truckSize -= boxTotal;
+            if(truckSize>eachBox[0]){
+                totalItem += (eachBox[0] * eachBox[1]);
+                truckSize-=eachBox[0];
             }
             else{
-                while(truckSize > 0){
-                    itemsTotal += boxTypes[i][1];
-                    truckSize--;
-                }
+                totalItem += (truckSize * eachBox[1]);
+                truckSize-=truckSize;
             }
         }
-        return itemsTotal;
+        return totalItem;
     }
 }
