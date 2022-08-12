@@ -5,13 +5,13 @@ class Solution {
         System.out.println(Arrays.deepToString(boxTypes));
         int totalItems = 0;
         for(int [] eachBox : boxTypes){
-            if(truckSize == 0){
+            if (truckSize >= eachBox[0]) {
+                totalItems += eachBox[0] * eachBox[1];
+                truckSize -= eachBox[0];
+            }else {
+                totalItems += truckSize * eachBox[1];
                 break;
             }
-            
-            int boxCount = Math.min(eachBox[0], truckSize);
-            totalItems += (boxCount*eachBox[1]);
-            truckSize-=boxCount;
         }
         return totalItems;
     }
