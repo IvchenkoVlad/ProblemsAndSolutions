@@ -1,34 +1,89 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-if (needle.length() == 0) {
-            return 0;
+        
+        if(needle.length() == 0){
+            return -1;
         }
         
-        int needlePointer = 0;
         int haystackPointer = 0;
+        int needlePointer = 0;
         
-        while (haystackPointer < haystack.length()) {
+        while(haystackPointer < haystack.length()){
             
-           if (haystack.charAt(haystackPointer) == needle.charAt(needlePointer)) {
-               needlePointer++;
-           }
-            else {
-                haystackPointer = haystackPointer - needlePointer;
+            if(haystack.charAt(haystackPointer) == needle.charAt(needlePointer)){
+                needlePointer++;
+            }
+            else{
+                haystackPointer -= needlePointer;
                 needlePointer = 0;
             }
-            
             haystackPointer++;
             
-            if (needlePointer == needle.length()) {
-                   
-                return (haystackPointer - needle.length());
-                   
+            if(needlePointer == needle.length()){
+                return haystackPointer - needle.length();
             }
+            
             
         }
         
         return -1;
-}
+        
+        
+    }   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+// if (needle.length() == 0) {
+//             return 0;
+//         }
+        
+//         int needlePointer = 0;
+//         int haystackPointer = 0;
+        
+//         while (haystackPointer < haystack.length()) {
+            
+//            if (haystack.charAt(haystackPointer) == needle.charAt(needlePointer)) {
+//                needlePointer++;
+//            }
+//             else {
+//                 haystackPointer = haystackPointer - needlePointer;
+//                 needlePointer = 0;
+//             }
+            
+//             haystackPointer++;
+            
+//             if (needlePointer == needle.length()) {
+                   
+//                 return (haystackPointer - needle.length());
+                   
+//             }
+            
+//         }
+        
+//         return -1;
+// }
         
         
         /*
