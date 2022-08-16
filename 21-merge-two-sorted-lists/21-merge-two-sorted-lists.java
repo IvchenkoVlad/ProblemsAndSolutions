@@ -10,12 +10,12 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        
         ListNode sorted = new ListNode(0);
         ListNode head = sorted;
         
-        while (l1 != null && l2 != null){
-            
-            if(l1.val <= l2.val){
+        while( l1 != null && l2 != null){
+            if(l1.val < l2.val){
                 head.next = l1;
                 l1 = l1.next;
             }
@@ -24,14 +24,9 @@ class Solution {
                 l2 = l2.next;
             }
             head = head.next;
+             
         }
-        if(l1 == null){
-            head.next = l2;
-        }
-        else{
-            head.next = l1;
-        }
+        head.next = l1 == null ? l2 : l1;
         return sorted.next;
-        
     }
 }
