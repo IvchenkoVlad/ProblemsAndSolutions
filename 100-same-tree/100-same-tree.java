@@ -20,9 +20,9 @@ class Solution {
         if(p == null || q == null) return false;
         if(p.val != q.val) return false;
         
-        boolean a = isSameTree(p.left, q.left);
-        boolean b = isSameTree(p.right, q.right);
-        return a && b;
+        boolean left = isSameTree(p.left, q.left);
+        boolean right = isSameTree(p.right, q.right);
+        return left && right;
     }
  
 }
