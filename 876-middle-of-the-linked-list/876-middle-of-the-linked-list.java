@@ -10,19 +10,18 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
+        ListNode copy = head;
         int counter = 0;
-        ListNode s = head;
-        while(head != null){
-            System.out.println(head.val);
-            head = head.next;
+        while(copy!=null){
             counter++;
+            copy=copy.next;
         }
         counter = (counter / 2) + 1;
-        while(counter-1 != 0){
-            System.out.println(s.val);
-            s = s.next;
+        
+        while(counter > 1){
+            head = head.next;
             counter--;
         }
-        return s;
+        return head;
     }
 }
