@@ -14,22 +14,10 @@
  * }
  */
 class Solution {
-    Queue<TreeNode> q = new LinkedList<>();
     public int maxDepth(TreeNode root) {
         if(root == null){
             return 0;
         }
-        return 1 + Math.max(maxDepth(root.right), maxDepth(root.left));
-    }
-    public void helper(TreeNode root){
-        
-        if(root == null){
-            return;
-        }
-        q.add(root);
-        System.out.println(q.poll().val);
-        helper(root.left);
-        helper(root.right);
-        
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 }
