@@ -19,7 +19,10 @@ class Solution {
     public void func(int i,int j,int[][] grid,int n,int m){
         if(i<0 || j<0 || i>=n || j>=m || grid[i][j]==0 ||visited[i][j]==true ){
             return;
-        }
+        }  
+        
+        
+        
         visited[i][j]=true;
         pot+=grid[i][j];
         func(i+1,j,grid,n,m);
