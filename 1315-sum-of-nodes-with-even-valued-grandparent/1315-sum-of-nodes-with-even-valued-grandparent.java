@@ -19,6 +19,7 @@ class Solution {
         if(root == null){
             return 0;
         }
+        
         if(root.val % 2 == 0){
             if(root.left != null && root.left.left != null){
                 sum+=root.left.left.val;
