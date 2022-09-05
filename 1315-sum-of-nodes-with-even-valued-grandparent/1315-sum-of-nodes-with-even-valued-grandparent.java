@@ -33,6 +33,7 @@ class Solution {
             if(root.right != null && root.right.right != null){
                 sum+=root.right.right.val;
             }
+            
         }
         sumEvenGrandparent(root.left);
         sumEvenGrandparent(root.right);
